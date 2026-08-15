@@ -44,20 +44,11 @@ class TranslationRequestsController(MethodView):
       )
       
       new_req = result['request']
-      sequences = result['sequences']
-      
-      sequences_data = [{
-        "id": seq.id,
-        "text": seq.text,
-        "order": seq.order,
-        "is_resolved": seq.is_resolved
-      } for seq in sequences]
+      sequences_data = result['sequences']
       
       return jsonify({
-        "message": "Translation request created successfully", 
-        "id": new_req.id,
-        "is_resolved": new_req.is_resolved,
-        "sequences": sequences_data
+        "success": True, 
+        "data": sequences_data
       }), 201
         
     except ValueError as e:

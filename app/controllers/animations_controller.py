@@ -42,19 +42,21 @@ class AnimationsController(MethodView):
     try:
         data = request.get_json()
         
-        if not data or 'name' not in data or 'duration' not in data:
-            return jsonify({"error": "The name and duration fields are required"}), 400
+        if not data or 'name' not in data or 'termCategoryId' not in data or 'duration' not in data:
+            return jsonify({"error": "The name, termCategoryId and duration fields are required"}), 400
             
         new_anim = AnimationService.create(
             name = data.get('name'),
             duration = data.get('duration'),
-            category_id = data.get('category_id'),
+            category_id = data.get('termCategoryId'),
             description = data.get('description')
         )
         
         return jsonify({
-            "message": "Animation created successfully", 
-            "id": new_anim.id
+            "success": True, 
+            "data": {
+                "animationId": new_anim.id
+            }
         }), 201
         
     except ValueError as e:

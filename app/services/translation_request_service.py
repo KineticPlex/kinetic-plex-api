@@ -5,6 +5,7 @@ from app.repositories.sequence_repository import SequenceRepository
 from app.repositories.term_repository import TermRepository
 from app.models.animation_sequence import AnimationSequence
 from app.repositories.animation_sequence_repository import AnimationSequenceRepository
+from app.repositories.animation_repository import AnimationRepository
 
 class TranslationRequestService:
 
@@ -51,7 +52,13 @@ class TranslationRequestService:
 
       created_sequence = SequenceRepository.create(new_sequence)
       
-      generated_sequences.append(created_sequence)
+      seq_data = {
+        "order": created_sequence.order,
+        "text": created_sequence.text,
+        "isResolved": created_sequence.is_resolved,
+        "animationKey": None,
+        "duration": None
+      }
 
       if is_word_resolved:
         new_animation_sequence = AnimationSequence(
@@ -60,6 +67,14 @@ class TranslationRequestService:
         )
         
         AnimationSequenceRepository.create(new_animation_sequence)
+
+        animation = AnimationRepository.get_by_id(term.animation_id)
+
+        if animation:
+          seq_data["animationKey"] = animation.key
+          seq_data["duration"] = animation.duration
+
+      generated_sequences.append(seq_data)
 
     if not all_resolved:
       created_request.is_resolved = False

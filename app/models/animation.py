@@ -12,7 +12,7 @@ class Animation(BaseModel):
   term_category_id = db.Column(
     db.Integer, 
     db.ForeignKey("term_categories.id"), 
-    nullable = True
+    nullable = False
   )
 
   key = db.Column(

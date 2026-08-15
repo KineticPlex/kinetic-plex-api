@@ -18,7 +18,7 @@ class AnimationService:
   def create(name, duration, category_id = None, description = None):
 
     new_animation = Animation(
-      category_id = category_id,
+      term_category_id = category_id,
       key = str(uuid.uuid4()),
       name = name,
       duration = duration,

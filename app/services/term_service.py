@@ -19,7 +19,7 @@ class TermService:
     new_term = Term(
       term_category_id = term_category_id,
       animation_id = animation_id,
-      text = text.lower().strip()
+      text = text.strip()
     )
 
     return TermRepository.create(new_term)

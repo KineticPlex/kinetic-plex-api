@@ -39,12 +39,12 @@ class TermsController(MethodView):
     try:
         data = request.get_json()
         
-        if not data or 'term_category_id' not in data or 'animation_id' not in data or 'text' not in data:
-            return jsonify({"error": "The fields term_category_id, animation_id, and text are required"}), 400
+        if not data or 'termCategoryId' not in data or 'animationId' not in data or 'text' not in data:
+            return jsonify({"error": "The fields termCategoryId, animationId, and text are required"}), 400
             
         new_term = TermService.create(
-            term_category_id = data.get('term_category_id'),
-            animation_id = data.get('animation_id'),
+            term_category_id = data.get('termCategoryId'),
+            animation_id = data.get('animationId'),
             text = data.get('text')
         )
         
