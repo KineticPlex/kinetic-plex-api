@@ -1,29 +1,29 @@
 from app.extensions import db
-from app.models.term_category import TermCategory
+from app.models.term import Term
 
-class TermCategoryRepository:
+class TermRepository:
 
   @staticmethod
   def get_all(include_deleted = False):
     
-    query = TermCategory.query
+    query = Term.query
     if not include_deleted:
       query = query.filter_by(is_deleted = False)
 
     return query.all()
 
   @staticmethod
-  def get_by_id(category_id):
+  def get_by_id(term_id):
     
-    return TermCategory.query.filter_by(id = category_id, is_deleted = False).first()
+    return Term.query.filter_by(id = term_id, is_deleted = False).first()
 
   @staticmethod
-  def create(category):
+  def create(term):
 
-    db.session.add(category)
+    db.session.add(term)
     db.session.commit()
 
-    return category
+    return term
 
   @staticmethod
   def update():
@@ -31,9 +31,9 @@ class TermCategoryRepository:
     db.session.commit()
 
   @staticmethod
-  def delete(category):
+  def delete(term):
 
-    category.is_deleted = True
+    term.is_deleted = True
     db.session.commit()
 
     return True

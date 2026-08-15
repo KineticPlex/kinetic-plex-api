@@ -1,32 +1,51 @@
+from app.models.term_category import TermCategory
 from app.repositories.term_category_repository import TermCategoryRepository
 
 class TermCategoryService:
 
-	@staticmethod
-	def get_all_categories():
-		categories  =  TermCategoryRepository.get_all()
+  @staticmethod
+  def get_all(include_deleted = False):
 
-		return [
-			{
-				"id": cat.id, 
-				"name": cat.name, 
-				"description": cat.description,
-				"creation_time": cat.creation_time.isoformat() if cat.creation_time else None
-			} 
-			for cat in categories
-		]
+    return TermCategoryRepository.get_all(include_deleted)
 
-	@staticmethod
-	def create_category(data):
-		name  =  data.get('name')
-		description  =  data.get('description')
+  @staticmethod
+  def get_by_id(category_id):
 
-		if not name or not name.strip():
-			raise ValueError("El nombre de la categoría es obligatorio.")
+    return TermCategoryRepository.get_by_id(category_id)
 
-		if not description:
-			raise ValueError("La descripción es obligatoria.")
+  @staticmethod
+  def create(name, description):
 
-		new_category  =  TermCategoryRepository.create(name = name, description = description)
+    new_category = TermCategory(
+      name = name,
+      description = description
+    )
 
-		return new_category
+    return TermCategoryRepository.create(new_category)
+
+  @staticmethod
+  def update(category_id, data):
+
+    category = TermCategoryRepository.get_by_id(category_id)
+    
+    if not category:
+      return None
+
+    if 'name' in data:
+      category.name = data['name']
+    if 'description' in data:
+      category.description = data['description']
+
+    TermCategoryRepository.update()
+
+    return category
+
+  @staticmethod
+  def delete(category_id):
+
+    category = TermCategoryRepository.get_by_id(category_id)
+    
+    if not category:
+      return False
+
+    return TermCategoryRepository.delete(category)
