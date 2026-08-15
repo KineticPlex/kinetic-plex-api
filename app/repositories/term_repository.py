@@ -18,6 +18,14 @@ class TermRepository:
     return Term.query.filter_by(id = term_id, is_deleted = False).first()
 
   @staticmethod
+  def get_by_text(search_text):
+    
+    return Term.query.filter(
+      db.func.lower(Term.text) == search_text.lower(), 
+      Term.is_deleted == False
+    ).first()
+
+  @staticmethod
   def create(term):
 
     db.session.add(term)

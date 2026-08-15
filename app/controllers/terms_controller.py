@@ -9,6 +9,7 @@ class TermsController(MethodView):
     try:
         if term_id is None:
             terms = TermService.get_all()
+            
             resultado = [{
                 'id': term.id,
                 'term_category_id': term.term_category_id,
@@ -61,6 +62,7 @@ class TermsController(MethodView):
 
     try:
         data = request.get_json()
+
         if not data:
             return jsonify({"error": "No data provided for update"}), 400
             
@@ -82,6 +84,7 @@ class TermsController(MethodView):
 
     try:
         success = TermService.delete(term_id)
+        
         if not success:
             return jsonify({"error": "Term not found"}), 404
             

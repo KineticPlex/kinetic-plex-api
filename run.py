@@ -5,6 +5,9 @@ from app.extensions import db, migrate
 from app.controllers.term_categories_controller import TermCategoriesController
 from app.controllers.animations_controller import AnimationsController
 from app.controllers.terms_controller import TermsController
+from app.controllers.translation_requests_controller import TranslationRequestsController
+from app.controllers.sequences_controller import SequencesController
+from app.controllers.animations_sequences_controller import AnimationsSequencesController
 
 app = Flask(__name__)
 
@@ -37,6 +40,18 @@ app.add_url_rule('/animations/<int:animation_id>', view_func = animations_contro
 terms_controller = TermsController.as_view('terms_controller')
 app.add_url_rule('/terms', view_func = terms_controller, methods = ['GET', 'POST'])
 app.add_url_rule('/terms/<int:term_id>', view_func = terms_controller, methods = ['GET', 'PUT', 'DELETE'])
+
+translation_requests_controller = TranslationRequestsController.as_view('translation_requests_controller')
+app.add_url_rule('/translationRequests', view_func = translation_requests_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/translationRequests/<int:request_id>', view_func = translation_requests_controller, methods = ['GET', 'DELETE'])
+
+sequences_controller = SequencesController.as_view('sequences_controller')
+app.add_url_rule('/sequences', view_func = sequences_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/sequences/<int:sequence_id>', view_func = sequences_controller, methods = ['GET', 'PUT', 'DELETE'])
+
+animation_sequences_controller = AnimationsSequencesController.as_view('animation_sequences_controller')
+app.add_url_rule('/animationSequences', view_func = animation_sequences_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/animationSequences/<int:record_id>', view_func = animation_sequences_controller, methods = ['GET', 'PUT', 'DELETE'])
 
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 5000)

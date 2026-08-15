@@ -17,6 +17,6 @@ DB_NAME=kinetic_plex_db
 
 Migrations
 
-flask db init
-flask db migrate -m "<migration-name>"
-flask db upgrade
+flask --app run.py db init
+flask --app run.py db migrate -m "<migration-name>"
+flask --app run.py db upgrade
