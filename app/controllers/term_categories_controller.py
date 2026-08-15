@@ -7,6 +7,7 @@ class TermCategoriesController(MethodView):
   def get(self):
     try:
         resultado = TermCategoryService.get_all_categories()
+        
         return jsonify(resultado), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500

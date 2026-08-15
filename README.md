@@ -14,3 +14,9 @@ DB_USER=root
 DB_PASSWORD=tu_password
 DB_HOST=localhost
 DB_NAME=kinetic_plex_db
+
+Migrations
+
+flask db init
+flask db migrate -m "<migration-name>"
+flask db upgrade
