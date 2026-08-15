@@ -42,3 +42,66 @@ INSERT INTO `term_categories` (`name`, `description`, `creation_time`, `last_mod
     ('Útiles de Aseo', 'Artículos de higiene personal, baño y limpieza.', CURRENT_TIMESTAMP, NULL, FALSE),
     ('Útiles de Clase', 'Lápices, cuadernos, mochilas y materiales escolares.', CURRENT_TIMESTAMP, NULL, FALSE),
     ('Provincias', 'Provincias, municipios y regiones geográficas de la República Dominicana.', CURRENT_TIMESTAMP, NULL, FALSE);
+
+-- ANIMATIONS
+
+INSERT INTO `animations` (`category_id`, `key`, `name`, `duration`, `description`, `creation_time`, `last_modification_time`, `is_deleted`) VALUES
+    (1, UUID(), 'Animación letra A', 1000, 'Deletreo manual: A', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra B', 1000, 'Deletreo manual: B', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra C', 1000, 'Deletreo manual: C', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra D', 1000, 'Deletreo manual: D', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra E', 1000, 'Deletreo manual: E', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra F', 1000, 'Deletreo manual: F', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra G', 1000, 'Deletreo manual: G', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra H', 1000, 'Deletreo manual: H', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra I', 1000, 'Deletreo manual: I', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra J', 1000, 'Deletreo manual: J', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra K', 1000, 'Deletreo manual: K', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra L', 1000, 'Deletreo manual: L', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra M', 1000, 'Deletreo manual: M', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra N', 1000, 'Deletreo manual: N', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra Ñ', 1000, 'Deletreo manual: Ñ', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra O', 1000, 'Deletreo manual: O', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra P', 1000, 'Deletreo manual: P', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra Q', 1000, 'Deletreo manual: Q', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra R', 1000, 'Deletreo manual: R', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra S', 1000, 'Deletreo manual: S', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra T', 1000, 'Deletreo manual: T', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra U', 1000, 'Deletreo manual: U', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra V', 1000, 'Deletreo manual: V', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra W', 1000, 'Deletreo manual: W', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra X', 1000, 'Deletreo manual: X', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra Y', 1000, 'Deletreo manual: Y', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, UUID(), 'Animación letra Z', 1000, 'Deletreo manual: Z', CURRENT_TIMESTAMP, NULL, FALSE);
+
+-- TERMS
+
+INSERT INTO `terms` (`term_category_id`, `animation_id`, `text`, `creation_time`, `last_modification_time`, `is_deleted`) VALUES
+    (1, 1, 'A', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 2, 'B', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 3, 'C', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 4, 'D', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 5, 'E', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 6, 'F', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 7, 'G', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 8, 'H', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 9, 'I', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 10, 'J', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 11, 'K', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 12, 'L', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 13, 'M', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 14, 'N', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 15, 'Ñ', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 16, 'O', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 17, 'P', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 18, 'Q', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 19, 'R', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 20, 'S', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 21, 'T', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 22, 'U', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 23, 'V', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 24, 'W', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 25, 'X', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 26, 'Y', CURRENT_TIMESTAMP, NULL, FALSE),
+    (1, 27, 'Z', CURRENT_TIMESTAMP, NULL, FALSE);
+
