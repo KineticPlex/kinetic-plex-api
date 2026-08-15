@@ -9,7 +9,7 @@ class Animation(BaseModel):
     primary_key = True
   )
 
-  category_id = db.Column(
+  term_category_id = db.Column(
     db.Integer, 
     db.ForeignKey("term_categories.id"), 
     nullable = True

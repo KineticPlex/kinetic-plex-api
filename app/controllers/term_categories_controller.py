@@ -59,6 +59,7 @@ class TermCategoriesController(MethodView):
 
     try:
       data = request.get_json()
+      
       if not data:
         return jsonify({"error": "No data provided for update"}), 400
         

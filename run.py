@@ -27,15 +27,16 @@ db.init_app(app)
 migrate.init_app(app, db)
 
 term_categories_controller = TermCategoriesController.as_view('term_categories_controller')
-app.add_url_rule('/termCategories', view_func = term_categories_controller, methods=['GET', 'POST'])
+app.add_url_rule('/termCategories', view_func = term_categories_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/termCategories/<int:category_id>', view_func = term_categories_controller, methods = ['GET', 'PUT', 'DELETE'])
 
 animations_controller = AnimationsController.as_view('animations_controller')
-app.add_url_rule('/animations', view_func=animations_controller, methods=['GET', 'POST'])
-app.add_url_rule('/animations/<int:animation_id>', view_func=animations_controller, methods=['GET', 'PUT', 'DELETE'])
+app.add_url_rule('/animations', view_func = animations_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/animations/<int:animation_id>', view_func = animations_controller, methods = ['GET', 'PUT', 'DELETE'])
 
 terms_controller = TermsController.as_view('terms_controller')
-app.add_url_rule('/terms', view_func=terms_controller, methods=['GET', 'POST'])
-app.add_url_rule('/terms/<int:term_id>', view_func=terms_controller, methods=['GET', 'PUT', 'DELETE'])
+app.add_url_rule('/terms', view_func = terms_controller, methods = ['GET', 'POST'])
+app.add_url_rule('/terms/<int:term_id>', view_func = terms_controller, methods = ['GET', 'PUT', 'DELETE'])
 
 if __name__ == '__main__':
-	app.run(debug = True, host='0.0.0.0', port = 5000)
+	app.run(debug = True, host = '0.0.0.0', port = 5000)

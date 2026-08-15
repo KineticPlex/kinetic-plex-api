@@ -45,7 +45,7 @@ INSERT INTO `term_categories` (`name`, `description`, `creation_time`, `last_mod
 
 -- ANIMATIONS
 
-INSERT INTO `animations` (`category_id`, `key`, `name`, `duration`, `description`, `creation_time`, `last_modification_time`, `is_deleted`) VALUES
+INSERT INTO `animations` (`term_category_id`, `key`, `name`, `duration`, `description`, `creation_time`, `last_modification_time`, `is_deleted`) VALUES
     (1, UUID(), 'Animación letra A', 1000, 'Deletreo manual: A', CURRENT_TIMESTAMP, NULL, FALSE),
     (1, UUID(), 'Animación letra B', 1000, 'Deletreo manual: B', CURRENT_TIMESTAMP, NULL, FALSE),
     (1, UUID(), 'Animación letra C', 1000, 'Deletreo manual: C', CURRENT_TIMESTAMP, NULL, FALSE),
