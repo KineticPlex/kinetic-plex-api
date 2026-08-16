@@ -12,36 +12,28 @@ Its primary responsibilities include:
 
 ```bash
 # Web framework and ORM for database management
-
 pip install Flask
 pip install Flask-SQLAlchemy
 
 # MySQL driver for Python
-
 pip install pymysql
 
 # Database migration handling
-
 pip install Flask-Migrate
 
 # Environment variable management
-
 pip install python-dotenv
 
 # Natural Language Processing library
-
 pip install spacy
 
 # Small model (Fastest, low memory footprint, good for development)
-
 python -m spacy download es_core_news_sm
 
 # Medium model (Better accuracy, includes word vectors)
-
 python -m spacy download es_core_news_md
 
 # Large model (Highest accuracy for production environments)
-
 python -m spacy download es_core_news_lg
 ```
 
@@ -50,10 +42,10 @@ python -m spacy download es_core_news_lg
 Create a `.env` file in the root directory of the project to configure your MySQL database connection. Replace the values with your local or server credentials:
 
 ```env
-DB_USER=root
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_NAME=kinetic_plex_db
+DB_USER=<your_database_user>
+DB_PASSWORD=<your_database_password>
+DB_HOST=<your_database_host>
+DB_NAME=<your_database_name>
 ```
 
 ## Database Migrations
