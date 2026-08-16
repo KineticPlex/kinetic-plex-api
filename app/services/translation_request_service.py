@@ -6,6 +6,7 @@ from app.repositories.term_repository import TermRepository
 from app.models.animation_sequence import AnimationSequence
 from app.repositories.animation_sequence_repository import AnimationSequenceRepository
 from app.repositories.animation_repository import AnimationRepository
+from app.services.nlp_service import NlpService
 
 class TranslationRequestService:
 
@@ -29,9 +30,9 @@ class TranslationRequestService:
 
     created_request = TranslationRequestRepository.create(new_request)
 
-    words = text.split()
-    all_resolved = True
+    words = NlpService.text_to_gloss(text)
     
+    all_resolved = True
     generated_sequences = []
 
     for index, word in enumerate(words):
