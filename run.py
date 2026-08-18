@@ -54,4 +54,4 @@ app.add_url_rule('/animationSequences', view_func = animation_sequences_controll
 app.add_url_rule('/animationSequences/<int:record_id>', view_func = animation_sequences_controller, methods = ['GET', 'PUT', 'DELETE'])
 
 if __name__ == '__main__':
-	app.run(debug = True, host = '0.0.0.0', port = 5000)
+	app.run(debug = True, host = '0.0.0.0', port = 9001)
