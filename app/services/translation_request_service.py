@@ -74,7 +74,7 @@ class TranslationRequestService:
 
         if animation:
           seq_data["animationKey"] = animation.key
-          seq_data["animationName"] = animation.description
+          seq_data["animationName"] = animation.name
           seq_data["duration"] = animation.duration
 
       generated_sequences.append(seq_data)
