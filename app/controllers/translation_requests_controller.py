@@ -43,7 +43,6 @@ class TranslationRequestsController(MethodView):
         text = data.get('text')
       )
       
-      new_req = result['request']
       sequences_data = result['sequences']
       
       return jsonify({

@@ -27,7 +27,22 @@ class NlpService:
         is_question = True
         continue
         
-      if token.is_punct or token.is_space or token.pos_ in ['DET', 'ADP', 'CCONJ', 'PRON', 'SCONJ']:
+      if token.is_punct or token.is_space:
+        continue
+        
+      if len(token.text) == 1 and token.is_alpha:
+        prev_alpha = next((t for t in reversed(doc[:token.i]) if t.is_alpha), None)
+        next_alpha = next((t for t in doc[token.i+1:] if t.is_alpha), None)
+        
+        prev_is_single = (prev_alpha is not None and len(prev_alpha.text) == 1)
+        next_is_single = (next_alpha is not None and len(next_alpha.text) == 1)
+        total_alphas = sum(1 for t in doc if t.is_alpha)
+        
+        if prev_is_single or next_is_single or total_alphas == 1:
+            others.append(token.text)
+            continue
+      
+      if token.pos_ in ['DET', 'ADP', 'CCONJ', 'PRON', 'SCONJ']:
         continue
         
       if token.pos_ in ['VERB', 'AUX']:

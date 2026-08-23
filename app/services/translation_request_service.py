@@ -58,6 +58,7 @@ class TranslationRequestService:
         "text": created_sequence.text,
         "isResolved": created_sequence.is_resolved,
         "animationKey": None,
+        "animationName": None,
         "duration": None
       }
 
@@ -73,6 +74,7 @@ class TranslationRequestService:
 
         if animation:
           seq_data["animationKey"] = animation.key
+          seq_data["animationName"] = animation.description
           seq_data["duration"] = animation.duration
 
       generated_sequences.append(seq_data)
