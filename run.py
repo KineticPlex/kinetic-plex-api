@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
 from app.extensions import db, migrate
 from app.controllers.term_categories_controller import TermCategoriesController
 from app.controllers.animations_controller import AnimationsController
