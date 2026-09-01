@@ -1,6 +1,6 @@
 import spacy
 
-nlp = spacy.load("es_core_news_lg")
+nlp = spacy.load("es_core_news_sm")
 
 class NlpService:
   
