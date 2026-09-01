@@ -1,0 +1,25 @@
+# Environment files and secrets (Critical for security!)
+.env
+
+# Git files
+.git
+.gitignore
+
+# Diagrams and documentation
+ER.drawio
+README.md
+
+# Initial database scripts (usually executed from the DB engine, not the API)
+initial-data.sql
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Local virtual environments (in case you create one in the future)
+venv/
+.venv/
+env/
