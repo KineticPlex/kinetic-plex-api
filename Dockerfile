@@ -1,17 +1,9 @@
-# Use Ubuntu 22.04 as the base image
-FROM ubuntu:22.04
+# Use official Python slim image (Debian-based, highly optimized and lightweight)
+FROM python:3.10-slim
 
-# Prevent interactive prompts during apt package installation
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Install Python, pip, and basic system dependencies
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    python3-dev \
-    build-essential \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# Prevent Python from writing .pyc files to disk and buffering stdout
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -20,8 +12,9 @@ WORKDIR /app
 ENV PIP_TRUSTED_HOST="pypi.org pypi.python.org files.pythonhosted.org github.com objects.githubusercontent.com raw.githubusercontent.com"
 ENV PYTHONHTTPSVERIFY=0
 
-# Install Python dependencies directly
-RUN pip3 install --no-cache-dir \
+# Install Python dependencies directly (wheels will download and install in seconds)
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir \
     Flask \
     Flask-SQLAlchemy \
     pymysql \
@@ -30,13 +23,13 @@ RUN pip3 install --no-cache-dir \
     spacy
 
 # Download spaCy small language model (Fastest, low memory footprint, good for development)
-RUN python3 -m spacy download es_core_news_sm
+RUN python -m spacy download es_core_news_sm
 
 # Copy the rest of the API code to the container
 COPY . .
 
-# Expose the default Flask port
-EXPOSE 5000
+# Expose the custom Flask port
+EXPOSE 9001
 
 # Command to start the application
-CMD ["python3", "run.py"]
+CMD ["python", "run.py"]
