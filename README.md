@@ -50,6 +50,16 @@ DB_HOST=<your_database_host>
 DB_NAME=<your_database_name>
 ```
 
+## Running the API (Local)
+
+Once your dependencies are installed and your environment variables are set, you can start the local Flask development server.
+
+```bash
+# Run the application on port 9001
+flask --app run.py run -p 9001
+```
+> **Note:** The API will be accessible at `http://127.0.0.1:9001`. Ensure your MySQL database is running and migrations are applied if you encounter database errors.
+
 ## Database Migrations
 
 We use `Flask-Migrate` (Alembic) to handle database schema changes. Whenever you create or modify a model in your code, you must run migrations to update the MySQL database.
@@ -109,31 +119,37 @@ When you need to stop the application:
 docker stop kinetic-plex-api-container
 ```
 
-**4. Remove the container:**
+**4. Start a stopped container:**
+To restart an existing container that was previously stopped (without needing to use `run` again):
+```bash
+docker start kinetic-plex-api-container
+```
+
+**5. Remove the container:**
 To delete a stopped container so you can create a new one with the same name:
 ```bash
 docker rm kinetic-plex-api-container
 ```
 
-**5. View container logs (Troubleshooting):**
+**6. View container logs (Troubleshooting):**
 To check the output and trace errors if a container fails to start:
 ```bash
 docker logs kinetic-plex-api-container
 ```
 
-**6. View all containers:**
+**7. View all containers:**
 To see a list of all your running and stopped containers:
 ```bash
 docker ps -a
 ```
 
-**7. View available images:**
+**8. View available images:**
 To see a list of all Docker images downloaded or built on your system:
 ```bash
 docker images
 ```
 
-**8. Access the container shell (Navigate inside):**
+**9. Access the container shell (Navigate inside):**
 To open an interactive terminal inside your running container and navigate its directories:
 ```bash
 docker exec -it kinetic-plex-api-container /bin/bash
