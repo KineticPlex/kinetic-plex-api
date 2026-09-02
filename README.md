@@ -112,47 +112,36 @@ If you are actively developing, mount your local directory as a volume so change
     ```cmd
     docker run -d --name kinetic-plex-api-container -p 9001:9001 -v "%cd%:/app" --env-file .env kinetic-plex-api
     ```
+    
+### Container Management Commands
 
-**3. Stop the container:**
-When you need to stop the application:
+**Stop a container:**
 ```bash
-docker stop kinetic-plex-api-container
+docker stop <container-name>
 ```
 
-**4. Start a stopped container:**
-To restart an existing container that was previously stopped (without needing to use `run` again):
+**Start a stopped container:**
 ```bash
-docker start kinetic-plex-api-container
+docker start <container-name>
 ```
 
-**5. Remove the container:**
-To delete a stopped container so you can create a new one with the same name:
+**Remove a container:**
 ```bash
-docker rm kinetic-plex-api-container
+docker rm <container-name>
 ```
 
-**6. View container logs (Troubleshooting):**
-To check the output and trace errors if a container fails to start:
+**View container logs (Troubleshooting):**
 ```bash
-docker logs kinetic-plex-api-container
+docker logs <container-name>
 ```
 
-**7. View all containers:**
-To see a list of all your running and stopped containers:
+**View all containers:**
 ```bash
 docker ps -a
 ```
 
-**8. View available images:**
-To see a list of all Docker images downloaded or built on your system:
+**Access the container shell (Navigate inside):**
 ```bash
-docker images
+docker exec -it <container-name> sh
 ```
-
-**9. Access the container shell (Navigate inside):**
-To open an interactive terminal inside your running container and navigate its directories:
-```bash
-docker exec -it kinetic-plex-api-container /bin/bash
-```
-
-> **Tip:** Once inside, you can use standard Linux commands like `ls` (to list files) and `cd` (to change directories). Type `exit` when you are done to leave the container's terminal.
+> **Tip:** Type `exit` when you are done to leave the container's terminal.
